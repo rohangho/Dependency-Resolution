@@ -1,0 +1,24 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+afterEvaluate {
+    publishing{
+        publications{
+            mavenJava(MavenPublication){
+                from components.java
+                groupId="com.example.myInternalapp"
+                artifactId= "myBase-java-two"
+                version = "1.0"
+            }
+        }
+    }
+}
+dependencies {
+    implementation("com.example.myapp:myBase-java:1.0")
+}
